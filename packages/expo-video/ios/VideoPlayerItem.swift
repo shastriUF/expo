@@ -1,7 +1,7 @@
 // Copyright 2024-present 650 Industries. All rights reserved.
 
-import AVFoundation
 import ExpoModulesCore
+
 class VideoPlayerItem: CachingPlayerItem {
   let videoSource: VideoSource
 
@@ -16,7 +16,7 @@ class VideoPlayerItem: CachingPlayerItem {
     super.init(url: url, useCaching: shouldCache, avUrlAssetOptions: avUrlAssetOptions)
   }
 
-  private static func canCache(videoSource: VideoSource) -> Bool {
+  static func canCache(videoSource: VideoSource) -> Bool {
     guard videoSource.uri?.scheme?.starts(with: "http") == true else {
       return false
     }
